@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow — To-do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+        <h1>Task<span>Flow.</span></h1>
+        <p class="sub">Make room for what matters.</p>
+      </div>
+      <div class="date-badge">
+        <span class="date-icon">📅</span>
+        <span id="today"></span>
+      </div>
+    </header>
+
+    <form id="taskForm" class="task-form">
+      <div class="input-wrap">
+        <input 
+          id="taskInput" 
+          type="text" 
+          maxlength="120" 
+          placeholder="What needs to get done?" 
+          autocomplete="off" 
+          required
+        >
+        <select id="prioritySelect" aria-label="Select priority">
+          <option value="medium">⚡ Medium</option>
+          <option value="high">🔥 High</option>
+          <option value="low">🌱 Low</option>
+        </select>
+      </div>
+      <button type="submit" class="add-btn">Add Task +</button>
+    </form>
+
+    <div class="search-wrap">
+      <input id="searchInput" type="text" placeholder="🔍 Search tasks..." autocomplete="off">
+    </div>
+
+    <div class="toolbar">
+      <div class="filters">
+        <button type="button" class="filter active" data-filter="all">All</button>
+        <button type="button" class="filter" data-filter="active">Active</button>
+        <button type="button" class="filter" data-filter="done">Completed</button>
+      </div>
+      <span id="count" class="count-badge">0 tasks</span>
+    </div>
+
+    <ul id="taskList" class="task-list"></ul>
+
+    <div class="empty" id="empty" hidden>
+      <div class="empty-icon">✨</div>
+      <p class="empty-title">Nothing here right now</p>
+      <small>All caught up or try a different filter.</small>
+    </div>
+
+    <footer class="app-footer">
+      <span id="remaining">0 remaining</span>
+      <div class="footer-actions">
+        <button type="button" id="resetDefaults" class="text-btn">Reset Defaults</button>
+        <button type="button" id="clearDone" class="text-btn danger">Clear completed</button>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
